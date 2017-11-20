@@ -1,0 +1,4 @@
+	$m=func_get_args();
+	while($p=array_pop($m)){
+		echo $p;
+	}
