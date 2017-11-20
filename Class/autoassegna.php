@@ -20,7 +20,7 @@ if(defined('ABSPATH')){
 	 'type_name_singular',
 	];
 	$o=&$this;
-	while($i<$l){$o[$m[$i]]=$n[$i];++$i;};
+	while($i<$l){$o[$n[$i]]=$m[$i];++$i;};
 	unset($i,$l,$m,$n);		
 		
 	}
