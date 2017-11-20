@@ -1,0 +1,25 @@
+<?php
+/*
+Plugin Name: 
+Php Tested: 5.6.31
+*/
+if(defined('ABSPATH')){
+ class xx{
+ 
+	function __construct(){
+		for($i=0,$m=func_get_args(),$l=count($m),$o=&$this,$p=['name'];$i<$l;++$i){$o->$p[$i]=$m[$i];};
+		unset($i,$m,$l,$p);
+	}
+
+
+   function __destruct(){
+	$o=&$this;
+	$n=PHP_EOL;
+	echo '<!--',$n,'Created xx:',$o->name,$n,'-->';
+   }
+ }
+ new PostType('zzzzzzz');
+}else{
+ exit;
+};
+?>
