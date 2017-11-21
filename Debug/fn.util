@@ -1,0 +1,1 @@
+echo __FUNCTION__,':';print_r(func_get_args());
