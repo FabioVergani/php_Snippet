@@ -1,16 +1,16 @@
 <?php
-if($dir_handler=opendir('./')){
+if($dir_handler=opendir('./data/')){
 	echo '<pre>';
 	$eol=PHP_EOL;
 	while(($file=readdir($dir_handler))!==false){
-		if(is_file($file)){
+		if(is_dir($file)!==true){
 			$info=pathinfo($file);
-			$file_ext=$info['extension'];
-			if(strcmp($file_ext,'json')===0){
-				$file_name=$info['filename'];
-				echo $file_name,'.',$file_ext,$eol;
+			if(strcmp($info['extension'],'json')===0){
+				
+				//$file_name=$info['filename'];
+				//$file_ext=$info['extension'];
+				//echo $file_name,'.',$file_ext,$eol;
 			};
-
 		};
 	};
 	closedir($dir_handler);
