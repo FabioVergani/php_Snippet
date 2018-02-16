@@ -1,14 +1,19 @@
 <?php
+function mailto($a,$b,$c,$d){mail($b,$c,$d,'MIME-Version: 1.0'.PHP_EOL.'Content-type: text/html; charset=iso-8859-1'.PHP_EOL.'To: '.$a.' <'.$b.'>'.PHP_EOL.'From: Scraper');}
+function sendAlert($c,$d){mailto('xx','x@x.x',$c.' - '.time(),'ALERT: '.$d);}
+
+//========================================================================
+
+function fill($k,$n,$t,$c){
+	if(file_put_contents($n,('<!-- '.$t.' -->'.PHP_EOL.$c),LOCK_EX)){
+		//ok! ^-^
+	}else{
+		sendAlert('fail writing data! ['.$k.']',$c);
+	};
+}
+
+//========================================================================
 function UpdateWeekData($n,$c){
-
-	function fill($k,$n,$t,$c){
-		if(file_put_contents($n,('<!-- '.$t.' -->'.PHP_EOL.$c),LOCK_EX)){
-			//ok! ^-^
-		}else{
-			//ALERT: fail writing data!
-		};
-	}
-
 	$A=strtotime(date('Y-m-d'));
 	$s='./data/';
 	if(is_dir($s)){
@@ -34,11 +39,12 @@ function UpdateWeekData($n,$c){
 			fill(0,$s,$A,$c);//crea file.
 		};
 	}else{
-		//ALERT: no data directory!
+		sendAlert('no data directory!',$s);
 	};
 }
+//=========================================
 
-UpdateWeekData('sss.table','zzzzzzzzzzzzzzzzzzz');
+UpdateWeekData('xxx.table','zzzzzzzzzzzzzzzzzzz');
 
 
 ?>    
