@@ -1,0 +1,7 @@
+$fh = fopen($myFile, 'a');// 'a' checks if the file exists and creates it if not
+fwrite($fh, $message."\n");
+fclose($fh);
+
+file_put_contents($myFile, $message."\n", FILE_APPEND);
+
+...of course, file_put_contents() is only better if it is the only write you perform on a given handle. If you have any later calls to fwrite() on the same file handle, you're better going
